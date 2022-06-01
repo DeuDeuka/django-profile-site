@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+
+<form action="/projects/new/", method="POST" class="text-center" enctype="multipart/form-data">
+    <h2 class="page-header">Add project</h2>
+    {% csrf_token %}
+    {% for f in form %}
+        {{ f.label }}: {{ f }}
+        <p></p>
+    {% endfor %}
+    <input type="submit" class="btn" value="Submit">
+</form> 
+
+{% endblock %}

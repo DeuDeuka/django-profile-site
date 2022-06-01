@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+
+<form action="/register/", method="POST" class="text-center">
+    <h2 class="page-header">Sign up</h2>
+    {% csrf_token %}
+    {% for f in form %}
+        {{ f.label }}: {{ f }}
+        <p></p>
+    {% endfor %}
+    <input type="submit" class="btn" value="Submit">
+</form> 
+
+{% endblock %}
